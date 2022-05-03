@@ -41,18 +41,18 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = '很抱歉，請問您說什麼?'
-    if "給我貼圖" in msg:
+    if '給我貼圖' in msg:
         sticker_message = StickerSendMessage(
         package_id='446',
         sticker_id='1993')
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=r))
+        sticker_message)
         return
-        
+
     if msg in ['hi', 'Hi']:
         r = '嗨嗨!今天想聊什麼?'
-    elif msg == '你是誰?':
+    elif msg == '你是誰':
         r = '我是機器人'
     elif '訂位' in msg:
         r = '給我日期、時間、訂位大名?'
